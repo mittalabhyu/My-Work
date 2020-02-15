@@ -1,0 +1,316 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+class calculator implements ActionListener
+{
+    long m=0,k,ans,l=0;int kk=0;
+    Frame f;   
+    TextField tf;
+    MenuBar jmb;
+    Menu fm; MenuItem jmi1,jmi2;
+    Button b,b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16,b17; Button si,co,ta,cot,sec ,cosec,po;
+    calculator(String p)
+    {
+        f=new Frame("CALCULATOR");
+        f.setSize(400,400);
+        f.setVisible(true);
+        f.setLayout(null);
+        tf=new TextField();
+        tf.setBounds(20,50,150,20);
+        f.add(tf);
+        jmb =new MenuBar();
+        fm=new Menu("FILE");
+        jmi1=new MenuItem("EXIT");
+        jmi2=new MenuItem("LOVE CALCULATOR");
+        fm.add(jmi1);
+        fm.add(jmi2);
+        jmb.add(fm);
+        f.setMenuBar(jmb);
+        b=new Button("1");
+        b.setBounds(20,100,20,20);
+        f.add(b);
+        b1=new Button("2");
+        b1.setBounds(50,100,20,20);
+        f.add(b1);
+        b2=new Button("3");
+        b2.setBounds(80,100,20,20);
+        f.add(b2);
+        b3=new Button("4");
+        b3.setBounds(20,130,20,20);
+        f.add(b3);
+        b4=new Button("5");
+        b4.setBounds(50,130,20,20);
+        f.add(b4);
+        b5=new Button("6");
+        b5.setBounds(80,130,20,20);
+        f.add(b5);
+        b6=new Button("7");
+        b6.setBounds(20,160,20,20);
+        f.add(b6);
+        b7=new Button("8");
+        b7.setBounds(50,160,20,20);
+        f.add(b7);
+        b8=new Button("9");
+        b8.setBounds(80,160,20,20);
+        f.add(b8);
+        b9=new Button("%");
+        b9.setBounds(20,190,50,20);
+        f.add(b9);
+        b10=new Button("0");
+        b10.setBounds(80,190,20,20);
+        f.add(b10);
+        b11=new Button("+");
+        b11.setBounds(110,100,20,20);
+        f.add(b11);
+        b12=new Button("-");
+        b12.setBounds(110,130,20,20);
+        f.add(b12);
+        b13=new Button("/");
+        b13.setBounds(140,100,20,20);
+        f.add(b13);
+        b14=new Button("*");
+        b14.setBounds(140,130,20,20);
+        f.add(b14); 
+        b15=new Button("=");
+        b15.setBounds(110,160,50,50);
+        f.add(b15); 
+        b16=new Button("AC");
+        b16.setBounds(20,220,40,20);
+        f.add(b16);
+        b17=new Button("BINARY");
+        b17.setBounds(80,220,80,20);
+        f.add(b17);
+        
+        f.setBackground(Color.orange);
+       
+        b.addActionListener(this);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+        b10.addActionListener(this);
+        b11.addActionListener(this);
+        b12.addActionListener(this);
+        b13.addActionListener(this);
+        b14.addActionListener(this);
+        b15.addActionListener(this);
+        b16.addActionListener(this);
+        b17.addActionListener(this);
+        jmi1.addActionListener(this);
+        jmi2.addActionListener(this);
+    }
+
+    public void actionPerformed(ActionEvent ae)
+    {
+        if(ae.getSource()==jmi1)
+        {
+            System.exit(0);
+        }
+        if(ae.getSource()==jmi2)
+        { 
+           Lc ll=new Lc("");
+
+        }
+        if(ae.getSource()==b15)
+        {
+            if(l==0)
+
+                tf.setText("ERROR");
+            else
+            {
+                if(l==1)
+                {
+                    ans=k+m;
+                    l=0;
+                }
+                else
+
+                if(l==2)
+                {
+                    ans=k-m;
+                    l=0;
+                }
+                else
+                if(l==4)
+                {
+                    ans=k*m;
+                    l=0;
+                }
+                else
+                if(l==3)
+                {
+                    ans=k/m;
+                    l=0;
+                }
+                else
+                if(l==5)
+                {
+                    ans=k%m;
+                    l=0;
+                }
+
+                String s=String.valueOf(ans);
+                tf.setText(s);
+            }
+
+        }
+        if(ae.getSource()==b)
+        {
+            m=main(1);
+            String s=String.valueOf(m);
+            tf.setText(s);
+        }
+        if(ae.getSource()==b1)
+        {   
+
+            m=main(2);
+            String s=String.valueOf(m);
+            tf.setText(s);
+        }
+        if(ae.getSource()==b2)
+        {
+
+            m=main(3);
+            String s=String.valueOf(m);
+            tf.setText(s);
+        }
+        if(ae.getSource()==b3)
+        {     
+            m=main(4);
+            String s=String.valueOf(m);
+            tf.setText(s);
+        }
+        if(ae.getSource()==b4)
+        {
+
+            m=main(5);
+            String s=String.valueOf(m);
+            tf.setText(s);
+        }
+        if(ae.getSource()==b5)
+        {      
+            m=main(6);
+            String s=String.valueOf(m);
+            tf.setText(s);
+        }
+        if(ae.getSource()==b6)
+        {    
+
+            m=main(7);
+            String s=String.valueOf(m);
+            tf.setText(s);
+        }
+        if(ae.getSource()==b7)
+        {
+            m=main(8);
+            String s=String.valueOf(m);
+            tf.setText(s);
+
+        }
+        if(ae.getSource()==b8)
+        {      
+
+            m=main(9);
+            String s=String.valueOf(m);
+            tf.setText(s);
+        }
+        if(ae.getSource()==b10)
+        {
+            m=main(0);
+            String s=String.valueOf(m);
+            tf.setText(s);
+        }
+        if(ae.getSource()==b11)
+        {
+            String s=String.valueOf(m);
+
+            k=m;
+            m=0;
+            l=1;
+            tf.setText(s+"+");
+        }
+        if(ae.getSource()==b12)
+        {
+            String s=String.valueOf(m);
+
+            k=m;
+            m=0;
+            l=2;
+            tf.setText(s+"-");
+        }
+        if(ae.getSource()==b13)
+        {
+            String s=String.valueOf(m);
+
+            k=m;
+            m=0;
+            l=3;
+            tf.setText(s+"/");
+        }
+        if(ae.getSource()==b14)
+        {
+            String s=String.valueOf(m);
+
+            k=m;
+            m=0;
+            l=4;
+            tf.setText(s+"*");
+        }
+        if(ae.getSource()==b9)
+        {
+
+            String s=String.valueOf(m);
+
+            k=m;
+            m=0;
+            l=5;
+            tf.setText(s+"%");
+        }    
+
+        if(ae.getSource()==b16)
+        {
+            m=0;
+            tf.setText("");
+        }
+        if(ae.getSource()==b17)
+        {
+
+            long v=bin(m);
+            m=0;
+            String s=String.valueOf(v);
+            tf.setText(s);
+        }    
+    }
+
+    long main(long n)
+    {
+        return (10*m)+n;   
+    }
+
+    long bin(long n)
+    {
+
+        if(n==0)
+        {
+            kk=0;
+            return 0;
+        }
+        else
+        {
+            int z=(int)Math.pow(10,kk++);
+            long p=n%2;
+            n=n/2;
+            return (p*z)+bin(n);
+        }
+    }
+
+    public static void main(String...s)
+    {
+        new calculator("calculator");
+    }
+}

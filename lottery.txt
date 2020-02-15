@@ -1,0 +1,244 @@
+import java.io.*;import java.util.*;
+class Lottery
+{
+    BufferedReader b=new BufferedReader(new InputStreamReader(System.in));
+    String name="",naam="";int h,m,s,tn=1;
+    void Enter() throws IOException
+    {
+        for(int o=0;o>=0;o++)
+        {
+        }
+        System.out.println("\f");
+        FileWriter fw=new FileWriter("Final Destination.txt",true);
+        BufferedWriter bw=new BufferedWriter(fw);
+        PrintWriter pin=new PrintWriter(bw);	
+        System.out.println("          @@@.....WORLD OF LOTTERY....@@@");
+        System.out.println("NAME : ");
+        name=b.readLine();
+        pin.print(name+":");
+        System.out.println("Your Member ID ");
+        String mid=b.readLine();
+        pin.println(mid);
+        System.out.println("Press Enter key to continue..........");
+        char ch1=(char)b.read();
+        pin.close();
+    }
+
+    void login() throws IOException
+    {
+        for(int o=0;o>=0;o++)
+        {
+        }
+        System.out.println("\f");
+        int flag=0;
+        FileReader file=new FileReader("Final Destination.txt");
+        BufferedReader iop=new BufferedReader(file);
+        System.out.println("          @@@.....WORLD OF LOTTERY....@@@");
+        System.out.println("Member ID :");
+        String mid=b.readLine();
+        String text="";
+        while((text=iop.readLine())!=null)
+        {
+            String zeo=text.substring(text.lastIndexOf(':')+1);
+            if(mid.compareTo(zeo)==0)
+            {
+                flag=1;
+                break;
+            }                
+        }
+        if(flag==0)
+        {
+            System.out.println("INVALID ID");
+        } 
+        else
+        {
+            naam=text.substring(0,text.lastIndexOf(':'));
+            System.out.println("Welcome "+naam);
+            System.out.println("1 : SET RESULT DATE");
+            System.out.println("2 : CHECK RESULT STATUS");
+            int n=Integer.parseInt(b.readLine());
+            FileWriter w=new FileWriter(naam+".txt",true);
+            BufferedWriter bop=new BufferedWriter(w);
+            PrintWriter pi=new PrintWriter(bop);
+            if(n==1)
+            {
+                System.out.println("Enter Day");
+                h=Integer.parseInt(b.readLine());
+                pi.print(h+" ");
+                System.out.println("Enter Month");
+                m=Integer.parseInt(b.readLine());
+                pi.print(m+" ");
+                System.out.println("Enter Year");
+                s=Integer.parseInt(b.readLine());
+                pi.println(s+"@"+"01");
+                pi.close();
+            }
+            if(n==2)
+            {
+                result();
+            }
+        }
+        iop.close();
+    }
+
+    void result() throws IOException
+    {
+        for(int o=0;o>=0;o++)
+        {
+        }
+        System.out.println("\f");
+        FileReader file=new FileReader("Final Destination.txt");
+        BufferedReader iop=new BufferedReader(file);
+        System.out.println("          @@@.....WORLD OF LOTTERY....@@@");
+        String text="";int flag=0;
+        System.out.println("NAME :");
+        String mid=b.readLine();
+        while((text=iop.readLine())!=null)
+        {
+            String zeo=text.substring(0,text.lastIndexOf(':'));
+            if(mid.compareTo(zeo)==0)
+            {
+                flag=1;
+                break;
+            }                
+        }
+        if(flag==0)
+        {
+            System.out.println("INVALID NAME");
+        } 
+        else
+        {
+            String tex="";
+            naam=text.substring(0,text.lastIndexOf(':'));
+            FileReader fil=new FileReader(naam+".txt");
+            BufferedReader io=new BufferedReader(fil);
+            while((tex=io.readLine())!=null)
+            {
+                String hh=tex.substring(0,tex.indexOf(' '));
+                String mm=tex.substring((tex.indexOf(' ')+1),tex.lastIndexOf(' '));
+                String ss=tex.substring(tex.lastIndexOf(' ')+1,tex.lastIndexOf('@'));
+                Calendar c=Calendar.getInstance();
+                String hr=String.valueOf(c.get((Calendar.DATE)));
+                String min=String.valueOf(c.get(Calendar.MONTH)+1);
+                String sec=String.valueOf(c.get((Calendar.YEAR)));
+                if(hh.compareTo(hr)==0&&mm.compareTo(min)==0&&ss.compareTo(sec)==0)
+                {
+                    FileReader fill=new FileReader(naam+".txt");
+                    BufferedReader ioz=new BufferedReader(fill);
+                    String texx="";
+                    while((texx=io.readLine())!=null)
+                    {
+                        String zx=texx.substring(texx.indexOf('@')+1);
+                        tn=Integer.parseInt(zx);
+                    }
+                    int r=0;
+                    while(r<1||r>tn)
+                    {
+                        r=(int)(Math.random()*10);  
+                    }
+                    System.out.println("WINNER NUMBER IS "+r);
+                    ioz.close();
+                }
+                else
+                {
+                    System.out.println("RESULT WILL BE DECLARED SOON..........");
+                }
+                break;
+            }
+            io.close();
+        }
+        iop.close();
+        System.out.println("Press Enter key to continue..........");
+        char ch1=(char)b.read();
+    }
+
+    void sell() throws IOException
+    {
+        for(int o=0;o>=0;o++)
+        {
+        }
+        System.out.println("\f");
+        try
+        {
+            System.out.println("          @@@.....WORLD OF LOTTERY....@@@");
+            System.out.println("ENTER NAME WHOSE LOTTERY YOU WANT TO PURCHASE");
+            String name=b.readLine();
+            FileReader file=new FileReader("Final Destination.txt");
+            BufferedReader iop=new BufferedReader(file);       
+            String text="";int flag=0;
+            while((text=iop.readLine())!=null)
+            {
+                naam=text.substring(0,text.lastIndexOf(':'));
+                if(name.compareTo(naam)==0)
+                {
+                    flag=1;
+                    break;
+                }                
+            }
+            if(flag==0)
+            {
+                System.out.println("NAME NOT FOUND");
+            } 
+            else
+            {  
+
+                FileWriter w=new FileWriter(naam+".txt",true);
+                BufferedWriter bop=new BufferedWriter(w);
+                PrintWriter pi=new PrintWriter(bop);
+                FileReader fil=new FileReader(naam+".txt");
+                BufferedReader io=new BufferedReader(fil);
+                String tex="";
+                while((tex=io.readLine())!=null)
+                {
+                    String zx=tex.substring(tex.indexOf('@')+1);
+                    tn=Integer.parseInt(zx);
+                }
+                System.out.println("YOUR TICKET NUMBER IS : "+tn++);
+                pi.println("@"+tn);
+                pi.close();
+                io.close();
+            }
+
+            System.out.println("Press Enter key to continue..........");
+            char ch1=(char)b.read();
+            iop.close();
+        }
+        catch(StringIndexOutOfBoundsException ex)
+        {
+            System.out.println("");
+        }
+
+    }
+
+    void main() throws IOException
+    {
+        for(;;)
+        {
+            for(int o=0;o>=0;o++)
+            {
+            }
+            System.out.println("\f");
+            System.out.println("          @@@.....WORLD OF LOTTERY....@@@");
+            System.out.println("1 : TO BUY TICKET ");
+            System.out.println("2 : TO SEE RESULT ");
+            System.out.println("3 : TO LOGIN");
+            System.out.println("4 : BECOME MEMBER");
+            System.out.println("5 : CLOSE");
+            int n=Integer.parseInt(b.readLine());
+            if(n==1)
+                sell();
+            else
+            if(n==2)
+                result();
+            else
+            if(n==3)
+                login();
+            else
+            if(n==4)
+                Enter();
+            else
+            if(n==5)
+                break;
+        }
+    }
+}

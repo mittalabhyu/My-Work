@@ -1,0 +1,216 @@
+import java.io.*;
+class Bank
+{
+    void main()  throws IOException
+    {int fg=0;
+        BufferedReader b=new BufferedReader(new InputStreamReader(System.in));
+        String name[]=new String[1000];long mn[]=new long[1000];int ac[]=new int[1000],bal[]=new int[1000],dep[]=new int[1000],w[]=new int[1000],k=10205;
+        for(int von=1;von<=1000;von++)
+        {
+            try
+            {
+                System.out.println("Password ");
+
+                String pa=b.readLine();
+                String axd="AbhyudayaMittal123456789";
+                if(pa.compareTo(axd)==0)
+                {
+                    System.out.println("Access Granted ");
+                    for(int op=0;op>=0;op++)
+                    {
+                    }
+                    System.out.println("\f");
+                    for(int h=1;h<=1000;h++)
+                    {
+                        try
+                        {
+                            System.out.println("                               STATE BANK OF INDIA");
+                            System.out.println("Enter 1    CREATE ACCOUNT");
+                            System.out.println("Enter 2    BANKING ");
+
+                            System.out.println("Enter 0    EXIT");
+                            int n=Integer.parseInt(b.readLine());
+                            for(int i=0;i>=0;i++)
+                            {
+                            }
+                            System.out.println("\f");
+                            if(n==1)
+                            {
+                                k=k+20;
+                                System.out.println("                              STATE BANK OF INDIA");
+                                System.out.println("Enter Your Name");
+                                name[h]=b.readLine();
+                                System.out.println("Enter Your Mobile Number");
+                                mn[h]=Long.parseLong(b.readLine());
+                                System.out.println("Your Account Created Successfully");
+                                ac[h]=k;
+                                System.out.println("Your Account Number is "+ac[h]);
+                                System.out.println("Press Enter key to continue..........");
+                                char ch1=(char)b.read();
+                                for(int o=0;o>=0;o++)
+                                {
+                                }
+                                System.out.println("\f");
+
+                            }
+                            else
+                            if(n==2)
+                            {
+                                System.out.println("                                             STATE BANK OF INDIA");
+                                System.out.println("Enter your 5-Digit Account Number");
+                                int acc=Integer.parseInt(b.readLine());
+                                int l=ac.length,flag=0;
+                                for(int j=0;j<l;j++)
+                                {
+                                    if(acc==ac[j])
+                                    {
+                                        System.out.println("Welcome "+name[j]);
+                                        for(int i=1;i<=100;i++)
+                                        {
+                                            for(int o=0;o>=0;o++)
+                                            {
+                                            }
+                                            System.out.println("\f");
+                                            System.out.println("                                        STATE BANK OF INDIA");
+                                            System.out.println("Enter 1    Check Balance");
+                                            System.out.println("Enter 2    Deposit Money");
+                                            System.out.println("Enter 3    Money Withdrawl");
+                                            System.out.println("Enter 4    Money Transfer");
+                                            System.out.println("Enter 5    EXit to Main Screen");
+                                            int ch=Integer.parseInt(b.readLine());
+                                            for(int c=0;c>=0;c++)
+                                            {
+                                            }
+                                            System.out.println("\f");
+                                            System.out.println("                                          STATE BANK OF INDIA");
+                                            if(ch==1)
+                                            {
+                                                System.out.println("Current Balance "+bal[j]+"/-");
+                                            }
+                                            else
+                                            if(ch==2)
+                                            {
+                                                System.out.println("Enter Deposit Ammount");
+                                                dep[j]=Integer.parseInt(b.readLine());
+                                                bal[j]+=dep[j];
+                                            }
+                                            else
+                                            if(ch==3)
+                                            {
+                                                System.out.println("Enter Withdrawl Ammount");
+                                                w[j]=Integer.parseInt(b.readLine());
+                                                if(w[j]<=bal[j])
+                                                {
+                                                    bal[j]-=w[j];
+                                                    System.out.println(w[j]+"/- Money Withdrawl Remaining Balance "+bal[j]+"/-");
+                                                }
+                                                else
+                                                {
+                                                    System.out.println("Not Enough Money");
+                                                }
+
+                                            }
+                                            else
+                                            if(ch==4)
+
+                                            {
+                                                System.out.println("Enter the Account Number In which You Want to Transfer Money");
+                                                int abc=Integer.parseInt(b.readLine());
+                                                for(int ad=0;ad<l;ad++)
+                                                {
+                                                    if(abc==ac[ad])
+                                                    {
+                                                        System.out.println("Enter The Ammount You Want to Transfer");
+                                                        int amt=Integer.parseInt(b.readLine());
+                                                        if(amt>bal[j])
+                                                        {
+                                                            System.out.println("Not Enough Ammount");
+                                                        }
+                                                        else
+                                                        {
+                                                            bal[j]-=amt;
+                                                            bal[ad]+=amt;
+                                                            System.out.println(name[j]+" Transfered Money to "+name[ad]);
+                                                        }
+
+                                                    }
+                                                   else
+                                                      {
+                                                          fg=1;
+                                                        }
+                                                        
+                                            
+                                                }
+                                            }
+                                            else
+                                            if(ch==5)
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                System.out.println("Wrong Choice");
+
+                                            }
+                                           if(fg==1)
+                                           System.out.println("Invalid Number");
+                                            for(int bn=0;bn>=0;bn++)
+                                            {
+                                            }
+
+                                            System.out.println("\f");
+                                        }
+                                    }
+                                }
+                            }
+
+                            else
+                            if(n==0)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                System.out.println("Wrong Choice:Please Enter only 1 or 2 ");
+                                for(int o=0;o>=0;o++)
+                                {
+                                }
+                                System.out.println("\f");
+                            }
+                        }
+
+                        catch(NumberFormatException ex)
+                        {
+                            System.out.println("COnsider Data type");
+                            for(int o=0;o>=0;o++)
+                            {
+                            }
+                            System.out.println("\f");
+                            continue;
+                        }
+                    }
+                }
+                else
+                {
+                    System.out.println("Your Password was Invalid");
+                    for(int t=0;t>=0;t++)
+                    {
+                    }
+                    System.out.println("\f");
+                }
+            }
+            catch(NumberFormatException e)
+            {
+                System.out.println("Password is Of Numeric Type");
+                for(int po=0;po>=0;po++)
+                {
+                }
+                for(int al=0;al>=0;al++)
+                {
+                }
+                System.out.println("\f");
+            }
+        }
+    }
+}
+

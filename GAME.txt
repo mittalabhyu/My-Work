@@ -1,0 +1,260 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;import java.io.*;import java.util.*;
+class GAME implements ActionListener
+{
+    Frame f; 
+    Button u1,d2,l3,r4;MenuBar jmb;
+    Menu fm; MenuItem jmi1,jmi2;
+    String fr[][];int g1=0,g2=0,pp=0,qq=0;
+    GAME(String p)
+    {
+        fr=new String[20][30];
+        for(int i=0;i<20;i++)
+        {
+            for(int j=0;j<30;j++)
+            {
+                fr[i][j]="  ";
+            }
+        }
+        for(int i=0;i<20;i++)
+        {
+            for(int j=0;j<30;j++)
+            {
+
+                fr[0][j]="& ";
+
+                fr[19][j]="& ";
+
+                fr[i][0]="& ";
+
+                fr[i][29]="& ";
+                if(i==2&&j>20&&j<29)
+                    fr[i][j]="* ";
+                if(i>=2&&i<11&&j==21)
+                    fr[i][j]="* ";
+                if(i>=2&&i<=6&&j==2)
+                    fr[i][j]="* ";
+                if(i==6&&j>2&&j<=19)
+                    fr[i][j]="* ";
+                if(i==2&&j>=4&&j<=19)
+                    fr[i][j]="* ";
+                if(i==4&&j>=4&&j<=17)
+                    fr[i][j]="* ";
+                if(i==4&&j>22&&j<29)
+                    fr[i][j]="* ";
+                fr[3][4]="* ";
+                fr[18][1]="X ";
+                System.out.print(fr[i][j]);
+            }
+            System.out.println();
+        }
+        f=new Frame("MAZE..");
+        f.setSize(800,170);
+        f.setVisible(true);
+        f.setLayout(null);
+        u1=new Button("U");
+        u1.setBounds(400,50,30,30);
+        f.add(u1);
+        d2=new Button("D");
+        d2.setBounds(400,100,30,30);
+        f.add(d2);    
+        l3=new Button("L");
+        l3.setBounds(350,80,30,30);
+        f.add(l3);
+        r4=new Button("R");
+        r4.setBounds(450,80,30,30);
+        f.add(r4);
+        f.setBackground(Color.green);
+        u1.addActionListener(this);
+        d2.addActionListener(this);
+        l3.addActionListener(this);
+        r4.addActionListener(this);
+        jmb =new MenuBar();
+        fm=new Menu("FILE");
+        jmi2=new MenuItem("NEW GAME");
+        fm.add(jmi2);
+        jmi1=new MenuItem("EXIT");
+        fm.add(jmi1);
+        jmb.add(fm);
+        f.setMenuBar(jmb);
+        jmi1.addActionListener(this);jmi2.addActionListener(this);
+    }
+
+    public void actionPerformed(ActionEvent ae) 
+    {
+        if(ae.getSource()==jmi1)
+        {
+            System.exit(0);
+        }
+        if(ae.getSource()==jmi2)
+        {
+            pp=0;qq=0;
+            for(int i=0;i<20;i++)
+            {
+                for(int j=0;j<30;j++)
+                {
+                    fr[i][j]="  ";
+                }
+            }
+            g1=0;g2=0;
+            for(int i=0;i<20;i++)
+            {
+                for(int j=0;j<30;j++)
+                {
+
+                    fr[0][j]="& ";
+
+                    fr[19][j]="& ";
+
+                    fr[i][0]="& ";
+
+                    fr[i][29]="& ";
+                    if(i==2&&j>20&&j<29)
+                        fr[i][j]="* ";
+                    if(i>=2&&i<11&&j==21)
+                        fr[i][j]="* ";
+                    if(i>=2&&i<=6&&j==2)
+                        fr[i][j]="* ";
+                    if(i==6&&j>2&&j<=19)
+                        fr[i][j]="* ";
+                    if(i==2&&j>=4&&j<=19)
+                        fr[i][j]="* ";
+                    if(i==4&&j>=4&&j<=17)
+                        fr[i][j]="* ";
+                    if(i==4&&j>22&&j<29)
+                        fr[i][j]="* ";
+                    fr[3][4]="* ";
+                    fr[18][1]="X ";
+                    System.out.print(fr[i][j]);
+                }
+                System.out.println();
+            }
+        }
+        if(ae.getSource()==u1)
+        {
+            if(pp==1||qq==1)
+            {}
+            else
+            {
+                for(int i=0;i<20;i++)
+                {
+                    for(int j=0;j<30;j++)
+                    {
+                        if(fr[i][j].compareTo("X ")==0)
+                        {                        
+                            fr[i][j]="  ";
+                            i=i-1;
+                            if(fr[i][j].compareTo("  ")!=0)
+                                g1=1;
+                            if(i==1&&j==28)
+                                g2=1;
+                            fr[i][j]="X ";                        
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if(ae.getSource()==d2)
+        {
+            if(pp==1||qq==1)
+            {}
+            else
+            {
+                for(int i=0;i<20;i++)
+                {
+                    for(int j=0;j<30;j++)
+                    {
+                        if(fr[i][j].compareTo("X ")==0)
+                        {  fr[i][j]="  ";
+                            i+=1;
+                            if(fr[i][j].compareTo("  ")!=0)
+                                g1=1;
+                            if(i==1&&j==28)
+                                g2=1;
+                            fr[i][j]="X ";
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if(ae.getSource()==l3)
+        {
+            if(pp==1||qq==1)
+            {}
+            else
+            {
+                for(int i=0;i<20;i++)
+                {
+                    for(int j=0;j<30;j++)
+                    {
+                        if(fr[i][j].compareTo("X ")==0)
+                        {
+                            fr[i][j]="  ";
+                            j=j-1;
+                            if(fr[i][j].compareTo("  ")!=0)
+                                g1=1;
+                            if(i==1&&j==28)
+                                g2=1;
+                            fr[i][j]="X ";
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if(ae.getSource()==r4)
+        {
+            if(pp==1||qq==1)
+            {}
+            else
+            {
+                for(int i=0;i<20;i++)
+                {
+                    for(int j=0;j<30;j++)
+                    {
+                        if(fr[i][j].compareTo("X ")==0)
+                        {
+                            fr[i][j]="  ";
+                            j=j+1;
+                            if(fr[i][j].compareTo("  ")!=0)
+                                g1=1;
+                            if(i==1&&j==28)
+                                g2=1;
+                            fr[i][j]="X ";
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println("\f");
+        for(int i=0;i<20;i++)
+        {
+            for(int j=0;j<30;j++)
+            {
+                System.out.print(fr[i][j]);
+            }
+            System.out.println();
+        }
+        if(g1==1||pp==1)
+        {
+            pp=1;
+            System.out.println("........GAME OVER.......");
+            System.out.println(".....   YOU LOOSE.......");
+        }
+        if(g2==1||qq==1)
+        {
+            qq=1;
+            System.out.println("......CONGRATULATIONS!.......");
+            System.out.println(".....   YOU WIN.......");
+        }
+    }
+
+    public static void main(String...p)
+    {
+        new GAME("GAME");
+    }
+}

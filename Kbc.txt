@@ -1,0 +1,1056 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+class Kbc implements ActionListener
+{
+    int won=0;
+    Thread t1=new Thread();
+    JFrame jf;
+    JPanel jp1,jp2,jp3,jp4;
+    JMenuBar jmb;
+    JMenu fm,abm,vm,subm1,subm2,subm3,subm4,ssubm1,ssubm2,ssubm3,ssubm4;
+    JMenuItem jmi1,jmi2,jmi3,jmi4;
+    JMenuItem s1mi[]=new JMenuItem[13];
+    JMenuItem s2mi[]=new JMenuItem[13];
+    JMenuItem s3mi[]=new JMenuItem[13];
+    JMenuItem s4mi[]=new JMenuItem[13];
+    JMenuItem ss1mi[]=new JMenuItem[13];
+    JMenuItem ss2mi[]=new JMenuItem[13];
+    JMenuItem ss3mi[]=new JMenuItem[13];
+    JMenuItem ss4mi[]=new JMenuItem[13];
+    JButton b1,b2,b3;
+    JPanel jp[]=new JPanel[10];
+    JLabel jl[]=new JLabel[10];
+    JPanel jpq;
+    JButton o1,o2,o3,o4;
+    JLabel l0,l1,l2,l3,l4,jp1l,jp1l2;
+    String sq,so1,so2,so3,so4;
+    int wrong1,wrong2;
+    boolean life1=true,life2=true,life3=true;
+    boolean ansis;
+    int a=0,b=0,c=0,d=10;
+    int givenans=0;
+    int rightans;
+    int qno=1;
+public void remove2()
+{
+     if(wrong1==1||wrong2==1){l1.setText("            ");}
+     if(wrong1==2||wrong2==2){l2.setText("            ");}
+     if(wrong1==3||wrong2==3){l3.setText("            ");}
+     if(wrong1==4||wrong2==4){l4.setText("            ");}
+}
+public String checkans()
+{
+    String decide;
+    if(givenans==rightans){ansis=true;}
+    else {ansis=false;}
+    if(ansis){decide="RIGHT";}
+    else{decide="wrong";}
+    return decide;
+}
+public void actionPerformed(ActionEvent e)
+{
+if(e.getSource()==ss1mi[0])
+    {
+    jp3.setBackground(Color.black);
+    }
+if(e.getSource()==ss1mi[1])
+    {
+    jp3.setBackground(Color.blue);
+    }
+if(e.getSource()==ss1mi[2])
+    {
+    jp3.setBackground(Color.cyan);
+    }
+if(e.getSource()==ss1mi[3])
+    {
+    jp3.setBackground(Color.darkGray);
+    }
+if(e.getSource()==ss1mi[4])
+    {
+    jp3.setBackground(Color.gray);
+    }
+if(e.getSource()==ss1mi[5])
+    {
+    jp3.setBackground(Color.green);
+    }
+if(e.getSource()==ss1mi[6])
+    {
+    jp3.setBackground(Color.lightGray);
+    }
+if(e.getSource()==ss1mi[7])
+    {
+    jp3.setBackground(Color.magenta);
+    }
+if(e.getSource()==ss1mi[8])
+    {
+    jp3.setBackground(Color.orange);
+    }
+if(e.getSource()==ss1mi[9])
+    {
+    jp3.setBackground(Color.pink);
+    }
+if(e.getSource()==ss1mi[10])
+    {
+    jp3.setBackground(Color.red);
+    }
+if(e.getSource()==ss1mi[11])
+    {
+    jp3.setBackground(Color.white);
+    }
+if(e.getSource()==ss1mi[12])
+    {
+    jp3.setBackground(Color.yellow);
+    }
+if(e.getSource()==s1mi[0])
+    {
+    jp1.setBackground(Color.black);
+    }
+if(e.getSource()==s1mi[1])
+    {
+    jp1.setBackground(Color.blue);
+    }
+if(e.getSource()==s1mi[2])
+    {
+    jp1.setBackground(Color.cyan);
+    }
+if(e.getSource()==s1mi[3])
+    {
+    jp1.setBackground(Color.darkGray);
+    }
+if(e.getSource()==s1mi[4])
+    {
+    jp1.setBackground(Color.gray);
+    }
+if(e.getSource()==s1mi[5])
+    {
+    jp1.setBackground(Color.green);
+    }
+if(e.getSource()==s1mi[6])
+    {
+    jp1.setBackground(Color.lightGray);
+    }
+if(e.getSource()==s1mi[7])
+    {
+    jp1.setBackground(Color.magenta);
+    }
+if(e.getSource()==s1mi[8])
+    {
+    jp1.setBackground(Color.orange);
+    }
+if(e.getSource()==s1mi[9])
+    {
+    jp1.setBackground(Color.pink);
+    }
+if(e.getSource()==s1mi[10])
+    {
+    jp1.setBackground(Color.red);
+    }
+if(e.getSource()==s1mi[11])
+    {
+    jp1.setBackground(Color.white);
+    }
+if(e.getSource()==s1mi[12])
+    {
+    jp1.setBackground(Color.yellow);
+    }
+if(e.getSource()==s2mi[0])
+    {
+    jp2.setBackground(Color.black);
+    }
+if(e.getSource()==s2mi[1])
+    {
+    jp2.setBackground(Color.blue);
+    }
+if(e.getSource()==s2mi[2])
+    {
+    jp2.setBackground(Color.cyan);
+    }
+if(e.getSource()==s2mi[3])
+    {
+    jp2.setBackground(Color.darkGray);
+    }
+if(e.getSource()==s2mi[4])
+    {
+    jp2.setBackground(Color.gray);
+    }
+if(e.getSource()==s2mi[5])
+    {
+    jp2.setBackground(Color.green);
+    }
+if(e.getSource()==s2mi[6])
+    {
+    jp2.setBackground(Color.lightGray);
+    }
+if(e.getSource()==s2mi[7])
+    {
+    jp2.setBackground(Color.magenta);
+    }
+if(e.getSource()==s2mi[8])
+    {
+    jp2.setBackground(Color.orange);
+    }
+if(e.getSource()==s2mi[9])
+    {
+    jp2.setBackground(Color.pink);
+    }
+if(e.getSource()==s2mi[10])
+    {
+    jp2.setBackground(Color.red);
+    }
+if(e.getSource()==s2mi[11])
+    {
+    jp2.setBackground(Color.white);
+    }
+if(e.getSource()==s2mi[12])
+    {
+    jp2.setBackground(Color.yellow);
+    }
+
+if(e.getSource()==s3mi[0])
+    {
+    jp4.setBackground(Color.black);
+    }
+if(e.getSource()==s3mi[1])
+    {
+    jp4.setBackground(Color.blue);
+    }
+if(e.getSource()==s3mi[2])
+    {
+    jp4.setBackground(Color.cyan);
+    }
+if(e.getSource()==s3mi[3])
+    {
+    jp4.setBackground(Color.darkGray);
+    }
+if(e.getSource()==s3mi[4])
+    {
+    jp4.setBackground(Color.gray);
+    }
+if(e.getSource()==s3mi[5])
+    {
+    jp4.setBackground(Color.green);
+    }
+if(e.getSource()==s3mi[6])
+    {
+    jp4.setBackground(Color.lightGray);
+    }
+if(e.getSource()==s3mi[7])
+    {
+    jp4.setBackground(Color.magenta);
+    }
+if(e.getSource()==s3mi[8])
+    {
+    jp4.setBackground(Color.orange);
+    }
+if(e.getSource()==s3mi[9])
+    {
+    jp4.setBackground(Color.pink);
+    }
+if(e.getSource()==s3mi[10])
+    {
+    jp4.setBackground(Color.red);
+    }
+if(e.getSource()==s3mi[11])
+    {
+    jp4.setBackground(Color.white);
+    }
+if(e.getSource()==s3mi[12])
+    {
+    jp4.setBackground(Color.yellow);
+    }
+
+
+    if(e.getSource()==o1)
+    {
+        try{
+            t1.sleep(1000);
+            }
+            catch(Exception e2)
+            {}
+        if(givenans==0){
+        givenans=1;
+
+        jp1l.setText("                                                          your ans is a and it is  "+checkans());
+        if(ansis){qno++;
+        nextq();}
+        else{jp1l2.setText("                                                    finaly,you won "+won+"/- rupees.");}
+
+    }
+    }
+    if(e.getSource()==o2)
+    {
+        try{
+            t1.sleep(1000);
+            }
+            catch(Exception e2)
+            {}
+        if(givenans==0){
+        givenans=2;
+
+        jp1l.setText("                                                          your ans is b and it is  "+checkans());
+        if(ansis){qno++;
+        nextq();}
+        else{jp1l2.setText("                                                    finaly you won "+won+"/- rupees.");}
+    }
+    }
+    if(e.getSource()==o3)
+    {
+        try{
+            t1.sleep(1000);
+            }
+            catch(Exception e2)
+            {}
+        if(givenans==0){
+        givenans=3;
+
+        jp1l.setText("                                                          your ans is c and it is  "+checkans());
+        if(ansis){qno++;
+        nextq();}
+        else{jp1l2.setText("                                                    finaly you won "+won+"/- rupees.");}
+    }
+    }
+    if(e.getSource()==o4)
+    {
+        try{
+            t1.sleep(1000);
+            }
+            catch(Exception e2)
+            {}
+        if(givenans==0){
+        givenans=4;
+        jp1l.setText("                                                          your ans is d and it is  "+checkans());
+        if(ansis){qno++;
+        nextq();}
+        else{jp1l2.setText("                                                    finaly you won "+won+"/- rupees.");}
+    }
+    }
+    if(e.getSource()==b1)
+    {
+        if(life1==true){
+            jp1l.setText("you selected 50:50 so now your question is .....");
+
+            try{
+            t1.sleep(2000);
+            }
+            catch(Exception e2)
+            {}
+            remove2();
+            life1=false;
+        }
+        else {
+            jp1l.setText("sorry , you have used this lifeline once .");
+        }
+
+    }
+    if(e.getSource()==b2)
+    {
+        if(life2==true){
+            jp1l.setText("you selected voting so now your result is : "+" a: "+a+"% b: "+b+"% c: "+c+"% d: "+d+"%");
+            life2=false;
+        }
+        else {
+            jp1l.setText("sorry , you have used this lifeline once .");
+        }
+
+    }
+    if(e.getSource()==b3)
+    {
+        if(life3==true){
+            jp1l.setText("you selected talk to Friend.so now your one minute is started to talk ");
+            life3=false;
+
+            try{
+            t1.sleep(60000);
+            }
+            catch(Exception e2)
+            {}
+            String s1="";
+            if(rightans==1){s1=" A";}
+            if(rightans==2){s1=" B";}
+            if(rightans==3){s1=" C";}
+            if(rightans==4){s1=" D";}
+            jp1l.setText("YOUR TIME IS END.ACCORDING TO YOUR FRIEND ANSWER IS "+s1+".    NOW PLEASE GIVE YOUR ANSWER.");
+        }
+        else {
+            jp1l.setText("sorry , you have used this lifeline once .");
+        }
+
+    }
+    if(e.getSource()==jmi2)
+    {
+        System.exit(0);
+    }
+    if(e.getSource()==jmi1)
+    {
+      qno=1;
+      life1=true;life2=true;life3=true;
+     jp[9].setBackground(Color.red);
+     jp[8].setBackground(Color.red);
+     jp[7].setBackground(Color.red);
+     jp[6].setBackground(Color.red);
+     jp[5].setBackground(Color.red);
+     jp[4].setBackground(Color.red);
+     jp[3].setBackground(Color.red);
+     jp[2].setBackground(Color.red);
+     jp[1].setBackground(Color.red);
+     jp[0].setBackground(Color.red);
+
+/////////////////////////////////////////////changing in colour or question rate
+     jp[qno-1].setBackground(Color.BLUE);
+    jp1l.setText("                                                            WEL COME TO THE KBC");
+    jp1l2.setText("                                                                BY :ABHYUDAYA MITTAL");
+
+    givenans=0;
+    getquestion(qno);
+
+    l0.setText("Q. " +  sq);
+    l1.setText(" A : " + so1);
+    l2.setText(" B : " + so2);
+    l3.setText(" C : " + so3);
+    l4.setText(" D : " + so4);
+
+    }
+    if(e.getSource()==jmi3)
+    {
+        jp1l.setText("                                       DESIGN BY : ABHYUDAYA MITTAL");
+        jp1l2.setText("                                      VERSION : ADVANCED");
+    }
+
+}
+
+public void Kbc()
+{
+    getquestion(qno);
+
+    /////////////////////////////////////////////////////////
+    ////   main frame///////////////////////////
+
+
+     jf=new JFrame("KBC");
+     jf.setLayout(null);
+     jf.setBounds(40, 40, 900, 750);
+     jf.setVisible(true);
+     jf.setDefaultCloseOperation(3);
+
+     //////////////////////////////////////////////////////////
+     ///////    menu bar /////////////////////////
+
+     jmb =new JMenuBar();
+     fm=new JMenu("FILE");
+     abm=new JMenu("ABOUT ME");
+     vm=new JMenu("VIEW");
+     subm1=new JMenu("MAIN BLOCK");
+     subm2=new JMenu("LIFELINE BLOCK");
+     subm3=new JMenu("QUESTION BLOCK");
+     subm4=new JMenu("PRIZE CASH BLOCK");
+     ssubm1=new JMenu("BACKGROUND COLOUR");
+     ssubm2=new JMenu("CURRENT PRIZE COLOUR");
+     ssubm3=new JMenu("UPCOMING PRIZES COLOUR");
+     ssubm4=new JMenu("WON PRIZES COLOUR");
+     jmi1=new JMenuItem("NEW GAME");
+     jmi2=new JMenuItem("EXIT");
+     jmi3=new JMenuItem("ABOUT ME");
+     s1mi[0]=new JMenuItem("BLACK");
+     s1mi[1]=new JMenuItem("BLUE");
+     s1mi[2]=new JMenuItem("CYAN");
+     s1mi[3]=new JMenuItem("DARKGRAY");
+     s1mi[4]=new JMenuItem("GRAY");
+     s1mi[5]=new JMenuItem("GREEN");
+     s1mi[6]=new JMenuItem("LIGHTGRAY");
+     s1mi[7]=new JMenuItem("MEGENTA");
+     s1mi[8]=new JMenuItem("ORANGE");
+     s1mi[9]=new JMenuItem("PINK");
+     s1mi[10]=new JMenuItem("RED");
+     s1mi[11]=new JMenuItem("WHITE");
+     s1mi[12]=new JMenuItem("YELLOW");
+     subm1.add(s1mi[0]);
+     subm1.add(s1mi[1]);
+     subm1.add(s1mi[2]);
+     subm1.add(s1mi[3]);
+     subm1.add(s1mi[4]);
+     subm1.add(s1mi[5]);
+     subm1.add(s1mi[6]);
+     subm1.add(s1mi[7]);
+     subm1.add(s1mi[8]);
+     subm1.add(s1mi[9]);
+     subm1.add(s1mi[10]);
+     subm1.add(s1mi[11]);
+     subm1.add(s1mi[12]);
+     s2mi[0]=new JMenuItem("BLACK");
+     s2mi[1]=new JMenuItem("BLUE");
+     s2mi[2]=new JMenuItem("CYAN");
+     s2mi[3]=new JMenuItem("DARK GRAY");
+     s2mi[4]=new JMenuItem("GRAY");
+     s2mi[5]=new JMenuItem("GREEN");
+     s2mi[6]=new JMenuItem("LIGHT GRAY");
+     s2mi[7]=new JMenuItem("MEGENTA");
+     s2mi[8]=new JMenuItem("ORANGE");
+     s2mi[9]=new JMenuItem("PINK");
+     s2mi[10]=new JMenuItem("RED");
+     s2mi[11]=new JMenuItem("WHITE");
+     s2mi[12]=new JMenuItem("YELLOW");
+     subm2.add(s2mi[0]);
+     subm2.add(s2mi[1]);
+     subm2.add(s2mi[2]);
+     subm2.add(s2mi[3]);
+     subm2.add(s2mi[4]);
+     subm2.add(s2mi[5]);
+     subm2.add(s2mi[6]);
+     subm2.add(s2mi[7]);
+     subm2.add(s2mi[8]);
+     subm2.add(s2mi[9]);
+     subm2.add(s2mi[10]);
+     subm2.add(s2mi[11]);
+     subm2.add(s2mi[12]);
+     s3mi[0]=new JMenuItem("BLACK");
+     s3mi[1]=new JMenuItem("BLUE");
+     s3mi[2]=new JMenuItem("CYAN");
+     s3mi[3]=new JMenuItem("DARK GRAY");
+     s3mi[4]=new JMenuItem("GRAY");
+     s3mi[5]=new JMenuItem("GREEN");
+     s3mi[6]=new JMenuItem("LIGHT GRAY");
+     s3mi[7]=new JMenuItem("MAGENTA");
+     s3mi[8]=new JMenuItem("ORANGE");
+     s3mi[9]=new JMenuItem("PINK");
+     s3mi[10]=new JMenuItem("RED");
+     s3mi[11]=new JMenuItem("WHITE");
+     s3mi[12]=new JMenuItem("YELLOW");
+     subm3.add(s3mi[0]);
+     subm3.add(s3mi[1]);
+     subm3.add(s3mi[2]);
+     subm3.add(s3mi[3]);
+     subm3.add(s3mi[4]);
+     subm3.add(s3mi[5]);
+     subm3.add(s3mi[6]);
+     subm3.add(s3mi[7]);
+     subm3.add(s3mi[8]);
+     subm3.add(s3mi[9]);
+     subm3.add(s3mi[10]);
+     subm3.add(s3mi[11]);
+     subm3.add(s3mi[12]);
+     ss1mi[0]=new JMenuItem("BLACK");
+     ss1mi[1]=new JMenuItem("BLUE");
+     ss1mi[2]=new JMenuItem("CYAN");
+     ss1mi[3]=new JMenuItem("DARK GRAY");
+     ss1mi[4]=new JMenuItem("GRAY");
+     ss1mi[5]=new JMenuItem("GREEN");
+     ss1mi[6]=new JMenuItem("LIGHT GRAY");
+     ss1mi[7]=new JMenuItem("MAGENTA");
+     ss1mi[8]=new JMenuItem("ORANGE");
+     ss1mi[9]=new JMenuItem("PINK");
+     ss1mi[10]=new JMenuItem("RED");
+     ss1mi[11]=new JMenuItem("WHITE");
+     ss1mi[12]=new JMenuItem("YELLOW");
+     ssubm1.add(ss1mi[0]);
+     ssubm1.add(ss1mi[1]);
+     ssubm1.add(ss1mi[2]);
+     ssubm1.add(ss1mi[3]);
+     ssubm1.add(ss1mi[4]);
+     ssubm1.add(ss1mi[5]);
+     ssubm1.add(ss1mi[6]);
+     ssubm1.add(ss1mi[7]);
+     ssubm1.add(ss1mi[8]);
+     ssubm1.add(ss1mi[9]);
+     ssubm1.add(ss1mi[10]);
+     ssubm1.add(ss1mi[11]);
+     ssubm1.add(ss1mi[12]);
+     ss2mi[0]=new JMenuItem("BLACK");
+     ss2mi[1]=new JMenuItem("BLUE");
+     ss2mi[2]=new JMenuItem("CYAN");
+     ss2mi[3]=new JMenuItem("DARK GRAY");
+     ss2mi[4]=new JMenuItem("GRAY");
+     ss2mi[5]=new JMenuItem("GREEN");
+     ss2mi[6]=new JMenuItem("LIGHT GRAY");
+     ss2mi[7]=new JMenuItem("MAGENTA");
+     ss2mi[8]=new JMenuItem("ORANGE");
+     ss2mi[9]=new JMenuItem("PINK");
+     ss2mi[10]=new JMenuItem("RED");
+     ss2mi[11]=new JMenuItem("WHITE");
+     ss2mi[12]=new JMenuItem("YELLOW");
+     ssubm2.add(ss2mi[0]);
+     ssubm2.add(ss2mi[1]);
+     ssubm2.add(ss2mi[2]);
+     ssubm2.add(ss2mi[3]);
+     ssubm2.add(ss2mi[4]);
+     ssubm2.add(ss2mi[5]);
+     ssubm2.add(ss2mi[6]);
+     ssubm2.add(ss2mi[7]);
+     ssubm2.add(ss2mi[8]);
+     ssubm2.add(ss2mi[9]);
+     ssubm2.add(ss2mi[10]);
+     ssubm2.add(ss2mi[11]);
+     ssubm2.add(ss2mi[12]);
+     ss3mi[0]=new JMenuItem("BLACK");
+     ss3mi[1]=new JMenuItem("BLUE");
+     ss3mi[2]=new JMenuItem("CYAN");
+     ss3mi[3]=new JMenuItem("DARK GRAY");
+     ss3mi[4]=new JMenuItem("GRAY");
+     ss3mi[5]=new JMenuItem("GREEN");
+     ss3mi[6]=new JMenuItem("LIGHT GRAY");
+     ss3mi[7]=new JMenuItem("MAGENTA");
+     ss3mi[8]=new JMenuItem("ORANGE");
+     ss3mi[9]=new JMenuItem("PINK");
+     ss3mi[10]=new JMenuItem("RED");
+     ss3mi[11]=new JMenuItem("WHITE");
+     ss3mi[12]=new JMenuItem("YELLOW");
+     ssubm3.add(ss3mi[0]);
+     ssubm3.add(ss3mi[1]);
+     ssubm3.add(ss3mi[2]);
+     ssubm3.add(ss3mi[3]);
+     ssubm3.add(ss3mi[4]);
+     ssubm3.add(ss3mi[5]);
+     ssubm3.add(ss3mi[6]);
+     ssubm3.add(ss3mi[7]);
+     ssubm3.add(ss3mi[8]);
+     ssubm3.add(ss3mi[9]);
+     ssubm3.add(ss3mi[10]);
+     ssubm3.add(ss3mi[11]);
+     ssubm3.add(ss3mi[12]);
+     ss4mi[0]=new JMenuItem("BLACK");
+     ss4mi[1]=new JMenuItem("BLUE");
+     ss4mi[2]=new JMenuItem("CYAN");
+     ss4mi[3]=new JMenuItem("DARK GRAY");
+     ss4mi[4]=new JMenuItem("GRAY");
+     ss4mi[5]=new JMenuItem("GREEN");
+     ss4mi[6]=new JMenuItem("LIGHT GRAY");
+     ss4mi[7]=new JMenuItem("MAGENTA");
+     ss4mi[8]=new JMenuItem("ORANGE");
+     ss4mi[9]=new JMenuItem("PINK");
+     ss4mi[10]=new JMenuItem("RED");
+     ss4mi[11]=new JMenuItem("WHITE");
+     ss4mi[12]=new JMenuItem("YELLOW");
+     ssubm4.add(ss4mi[0]);
+     ssubm4.add(ss4mi[1]);
+     ssubm4.add(ss4mi[2]);
+     ssubm4.add(ss4mi[3]);
+     ssubm4.add(ss4mi[4]);
+     ssubm4.add(ss4mi[5]);
+     ssubm4.add(ss4mi[6]);
+     ssubm4.add(ss4mi[7]);
+     ssubm4.add(ss4mi[8]);
+     ssubm4.add(ss4mi[9]);
+     ssubm4.add(ss4mi[10]);
+     ssubm4.add(ss4mi[11]);
+     ssubm4.add(ss4mi[12]);
+
+
+     jmi1.addActionListener(this);
+     jmi2.addActionListener(this);
+     jmi3.addActionListener(this);
+
+      for(int i=0;i<s1mi.length;i++)
+      {
+      s1mi[i].addActionListener(this);
+      }
+      for(int i=0;i<s2mi.length;i++)
+      {
+      s2mi[i].addActionListener(this);
+      }
+      for(int i=0;i<s3mi.length;i++)
+      {
+      s3mi[i].addActionListener(this);
+      }
+      for(int i=0;i<ss1mi.length;i++)
+      {
+      ss1mi[i].addActionListener(this);
+      }
+      for(int i=0;i<ss2mi.length;i++)
+      {
+      ss2mi[i].addActionListener(this);
+      }
+      for(int i=0;i<ss3mi.length;i++)
+      {
+      ss3mi[i].addActionListener(this);
+      }
+      for(int i=0;i<ss4mi.length;i++)
+      {
+      ss4mi[i].addActionListener(this);
+      }
+
+
+     fm.add(jmi1);
+     fm.add(jmi2);
+     abm.add(jmi3);
+
+     subm4.add(ssubm1);
+     subm4.add(ssubm2);
+     subm4.add(ssubm3);
+     subm4.add(ssubm4);
+     vm.add(subm1);
+     vm.add(subm2);
+     vm.add(subm3);
+     vm.add(subm4);
+     jmb.add(fm);
+     jmb.add(vm);
+     jmb.add(abm);
+     jf.setJMenuBar(jmb);
+
+
+
+
+     //////////////////////////////////////////////////////////
+     ///////  1st panel  ////////////////////////////
+
+
+
+     jp1=new JPanel();
+     jp1.setBounds(0, 00, 600,500);
+     jp1.setBackground(Color.cyan);
+     GridLayout gl=new GridLayout(3,1);
+     jp1.setLayout(gl);
+     JLabel name;
+     name =new JLabel("                                                                        KHEL KHEL MAIN JEETO");
+     jp1l=new JLabel("                                                            WEL COME TO KON BANEGA CROREPATI");
+     jp1l2=new JLabel("                                                                BY : ABHYUDAYA MITTAL");
+     jp1.add(name);
+     jp1.add(jp1l);
+     jp1.add(jp1l2);
+     jf.add(jp1);
+
+
+     /////////////////////////////////////////////////////////
+     //////  2nd panel ////////////////////////////
+
+
+     jp2=new JPanel();
+     jp2.setBounds(600, 0, 300,100);
+     jp2.setBackground(Color.blue);
+     jp2.setLayout(null);
+     jf.add(jp2);
+     b1=new JButton("50:50");
+     b2=new JButton("voting");
+     b3=new JButton("friend");
+     b1.setBounds(10,10,80,80);
+     b2.setBounds(100,10,80,80);
+     b3.setBounds(190,10,80,80);
+     b1.addActionListener(this);
+     b2.addActionListener(this);
+     b3.addActionListener(this);
+     jp2.add(b1);
+     jp2.add(b2);
+     jp2.add(b3);
+
+     ////////////////////////////////////////////////////////
+     //////    3rd panel //////////////////////////
+
+     jp3=new JPanel();
+     jp3.setBounds(600,100, 300,400);
+     jp3.setBackground(Color.black);
+     jp3.setLayout(null);
+
+     jp[9]=new JPanel();
+     jp[9].setBounds(50, 5,200,30);
+     jp[9].setBackground(Color.red);
+     jl[9]=new JLabel("10'00'00'000");
+     jp[9].add(jl[9]);
+     jp3.add(jp[9]);
+     jp[8]=new JPanel();
+     jp[8].setBounds(50, 45,200,30);
+
+     jp[8].setBackground(Color.red);
+     jl[8]=new JLabel("1'00'00'000");
+     jp[8].add(jl[8]);
+     jp3.add(jp[8]);
+     jp[7]=new JPanel();
+     jp[7].setBounds(50, 85,200,30);
+     jp[7].setBackground(Color.red);
+     jl[7]=new JLabel("50'00'000");
+     jp[7].add(jl[7]);
+     jp3.add(jp[7]);
+     jp[6]=new JPanel();
+     jp[6].setBounds(50, 125,200,30);
+     jp[6].setBackground(Color.red);
+     jl[6]=new JLabel("10'00'000");
+     jp[6].add(jl[6]);
+     jp3.add(jp[6]);
+     jp[5]=new JPanel();
+     jp[5].setBounds(50, 165,200,30);
+     jp[5].setBackground(Color.red);
+     jl[5]=new JLabel("5'00'000");
+     jp[5].add(jl[5]);
+     jp3.add(jp[5]);
+     jp[4]=new JPanel();
+     jp[4].setBounds(50, 205,200,30);
+     jp[4].setBackground(Color.red);
+     jl[4]=new JLabel("1'00'000");
+     jp[4].add(jl[4]);
+     jp3.add(jp[4]);
+     jp[3]=new JPanel();
+     jp[3].setBounds(50, 245,200,30);
+     jp[3].setBackground(Color.red);
+     jl[3]=new JLabel("50'000");
+     jp[3].add(jl[3]);
+     jp3.add(jp[3]);
+     jp[2]=new JPanel();
+     jp[2].setBounds(50, 285,200,30);
+     jp[2].setBackground(Color.red);
+     jl[2]=new JLabel("30'000");
+     jp[2].add(jl[2]);
+     jp3.add(jp[2]);
+     jp[1]=new JPanel();
+     jp[1].setBounds(50, 325,200,30);
+     jp[1].setBackground(Color.red);
+     jl[1]=new JLabel("20'000");
+     jp[1].add(jl[1]);
+     jp3.add(jp[1]);
+     jp[0]=new JPanel();
+     jp[0].setBounds(50, 365,200,30);
+     jp[0].setBackground(Color.red);
+     jl[0]=new JLabel("10'000");
+     jp[0].add(jl[0]);
+     jp3.add(jp[0]);
+     jf.add(jp3);
+/////////////////////////////////////////////changing in colour or question rate
+     jp[qno-1].setBackground(Color.BLUE);
+
+     ////////////////////////////////////////////////////////
+     //////    4th panel //////////////////////////
+
+     jp4=new JPanel();
+     jp4.setBounds(0,500, 900,200);
+     jp4.setBackground(Color.blue);
+     jp4.setLayout(null);
+
+
+     jpq=new JPanel();
+     jpq.setBounds(50, 10, 800,50);
+     l0=new JLabel();
+     l0.setText(" Q : " + sq);
+     jpq.add(l0);
+     jp4.add(jpq);
+     o1=new JButton();
+     o1.setBounds(50,70,380,50);
+     l1=new JLabel();
+     l1.setText(" A : " + so1);
+     o1.add(l1);
+     o1.addActionListener(this);
+     jp4.add(o1);
+     o2=new JButton();
+     o2.setBounds(470,70, 380, 50);
+     l2=new JLabel();
+     l2.setText(" B : " + so2);
+     o2.add(l2);
+     o2.addActionListener(this);
+     jp4.add(o2);
+     o3=new JButton();
+     o3.setBounds(50,130,380,50);
+     l3=new JLabel();
+     l3.setText(" C : " + so3);
+     o3.add(l3);
+
+     o3.addActionListener(this);
+     jp4.add(o3);
+     o4=new JButton();
+     o4.setBounds(470,130,380,50);
+     l4=new JLabel();
+     l4.setText(" D : " + so4);
+     o4.add(l4);
+
+     o4.addActionListener(this);
+     jp4.add(o4);
+     jf.add(jp4);
+
+
+}
+public void getquestion(int qno)
+{
+    switch(qno)
+    {
+        case 1:
+                sq="WHO WAS THE FIRST PRIME MINISTER OF FREE INDIA ?";
+                so1="LAL BAHADUR SHASTRI";
+                so2="MAHATMA GANDHI";
+                so3="PT. JAWAHAR LAL NEHRU";
+                so4="DR. RAJENDRA PRASHAD";
+                a=20;
+                b=10;
+                c=40;
+                d=30;
+                wrong1=1;
+                wrong2=2;
+                rightans=3;
+                break;
+           case 2:
+               sq="WHICH IS THE BIGGEST STATE OF INDIA BY POINT OF VIEW OF AREA ?";
+                so1="UTTAR PRADESH";
+                so2="RAJSTHAN";
+                so3="MADHYA PRADESH";
+                so4="MAHARASTRA";
+                a=30;
+                b=45;
+                c=15;
+                d=10;
+                wrong1=3;
+                wrong2=4;
+                rightans=2;
+                break;
+
+           case 3:
+               sq="IN WHICH CITY IDEN GARDEN STADIUM IS PLACED ?";
+                so1="MUMBAI";
+                so2="GWALIOR";
+                so3="KOLKATA";
+                so4="CHENNAI";
+                a=30;
+                b=10;
+                c=45;
+                d=15;
+                wrong1=2;
+                wrong2=4;
+                rightans=3;
+                break;
+           case 4:
+               sq="WHAT IS THE OLD NAME OF DELHI?";
+                so1="BILLI";
+                so2="INDRA NAGAR";
+                so3="MANDAKNI";
+                so4="INDRAPRASTH";
+                a=5;
+                b=35;
+                c=15;
+                d=45;
+                wrong1=1;
+                wrong2=3;
+                rightans=4;
+                break;
+           case 5:
+               sq="WHO WAS THE FATHER OF KARNA OF MAHABHARAT?";
+                so1="PANDU";
+                so2="SUN";
+                so3="DHRATRASTRA";
+                so4="INDRA";
+                a=30;
+                b=35;
+                c=20;
+                d=15;
+                wrong1=3;
+                wrong2=4;
+                rightans=2;
+                break;
+           case 6:
+               sq="KUMBH MELA IS RELATED TO :";
+                so1="PRAYAG-HARIDWAR-UJJAIN-NASIK";
+                so2="CHITRAKOOT-UJJAIN-PRAYAG-HARIDWAR";
+                so3="RAMESWARAM-PURI-BADRINATH-DWARIKA";
+                so4="UJJAIN-PURI-PRAYAG-HARIDWAR";
+                a=30;
+                b=25;
+                c=15;
+                d=30;
+                wrong1=2;
+                wrong2=4;
+                rightans=1;
+                break;
+           case 7:
+               sq="WHO WAS THE MAN OF THE SERIES OF ICC WORLD CUP 2011 ?";
+                so1="SACHIN TENDULKAR";
+                so2="M S DHONI";
+                so3="YUVRAJ SINGH";
+                so4="SAURABH ";
+                a=20;
+                b=34;
+                c=36;
+                d=10;
+                wrong1=1;
+                wrong2=4;
+                rightans=3;
+                break;
+           case 8:
+               sq="SUPPLYMENTRY COLOUR OF YELLOW COLOUR IS ?";
+                so1="BLUE";
+                so2="GREEN";
+                so3="ORANGE";
+                so4="RED";
+                a=32;
+                b=30;
+                c=13;
+                d=30;
+                wrong1=3;
+                wrong2=2;
+                rightans=1;
+                break;
+           case 9:
+               sq="WHO DISCOVERED X-RAYS ?";
+                so1="RONTGEN";
+                so2="HOPEKINS";
+                so3="MARKONI";
+                so4="MORS";
+                a=35;
+                b=45;
+                c=10;
+                d=10;
+                wrong1=3;
+                wrong2=4;
+                rightans=1;
+                break;
+           case 10:
+               sq="WHO IS GENERATOR OF E-MAIL ?";
+                so1="BIL GATES";
+                so2="TIMOTHI BIL";
+                so3="LINKON GOLITUSBARG";
+                so4="REY TAMLINSION";
+                a=2;
+                b=31;
+                c=33;
+                d=34;
+                wrong1=1;
+                wrong2=3;
+                rightans=4;
+                break;
+        default:
+
+     sq="THIS IS YOUR QUESTION ?";
+     so1="OPTION A";
+     so2="OPTION B";
+     so3="OPTION C";
+     so4="OPTION D";
+     rightans=0;
+             break;
+}
+}
+public void won(int qno)
+{
+    if(qno==2){won=10000;}
+    if(qno==3){won=20000;}
+    if(qno==4){won=30000;}
+    if(qno==5){won=50000;}
+    if(qno==6){won=100000;}
+    if(qno==7){won=500000;}
+    if(qno==8){won=1000000;}
+    if(qno==9){won=5000000;}
+    if(qno==10){won=10000000;}
+    if(qno>10){won=100000000;}
+
+}
+public void nextq()
+{
+    won(qno);
+    jp1l2.setText("                                               CONGRATULATION! you won "+won+"/- rupees.");
+    jp[qno-2].setBackground(Color.GREEN);
+    if(qno<10){
+    jp[qno-1].setBackground(Color.BLUE);
+    }
+    givenans=0;
+    getquestion(qno);
+
+    l0.setText("Q. " +  sq);
+    l1.setText(" A : " + so1);
+    l2.setText(" B : " + so2);
+    l3.setText(" C : " + so3);
+    l4.setText(" D : " + so4);
+
+}
+public void play()
+{
+    Kbc play1=new Kbc();
+    play1.Kbc();
+
+
+}
+public static void main(String[]args)
+{
+    Kbc k1=new Kbc();
+    k1.play();
+}
+}

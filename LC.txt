@@ -1,0 +1,139 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;import java.io.*;import java.util.*;
+class Lc implements ActionListener
+{
+    Frame f;MenuBar mb;Menu m;MenuItem mi;
+    TextField tf,tf1,tf2;
+    Button b1,b2,b3,b4;JPanel jp1,jp2;
+    Lc(String p)
+    {
+        f=new Frame("LOVE CALCULATOR");
+        f.setSize(1600,800);
+        f.setVisible(true);
+        f.setLayout(null);
+        f.addKeyListener(new Zo3());
+        f.setBackground(Color.red);
+        mb=new MenuBar();m=new Menu("FILE");mi=new MenuItem("EXIT");m.add(mi);mb.add(m);f.setMenuBar(mb);
+        tf=new TextField();
+        tf.setBounds(400,50,500,40);
+        f.add(tf);  
+        tf.addKeyListener(new Zo3());
+        b1=new Button("NAME1");
+        b2=new Button("NAME2");
+        b3=new Button("CLRit");
+        b4=new Button("CALC.");
+        b1.setBounds(100,120,60,20);
+        b2.setBounds(850,120,60,20);
+        b3.setBounds(850,650,60,20);
+        b4.setBounds(650,200,60,20);
+        b4.setBackground(Color.pink);
+        f.add(b4);
+        f.add(b1);
+        f.add(b2);
+        f.add(b3);
+        b4.addKeyListener(new Zo3());
+        b3.addKeyListener(new Zo3());
+        b2.addKeyListener(new Zo3());
+        b1.addKeyListener(new Zo3());
+        jp1=new JPanel();
+        jp1.setBounds(20,100,500,500);
+        jp1.setBackground(Color.pink);
+        tf1=new TextField();
+        tf1.setBounds(50,200,200,40);
+        f.add(tf1);
+        f.add(jp1);
+        jp2=new JPanel();
+        jp2.setBounds(800,100,500,500);
+        jp2.setBackground(Color.pink);
+        tf2=new TextField();
+        tf2.setBounds(850,200,200,40);
+        f.add(tf2);
+        f.add(jp2);
+        
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        mi.addActionListener(this);
+    }
+
+    public void actionPerformed(ActionEvent ae) 
+    {
+        if(ae.getSource()==mi)
+        {
+            System.exit(5);
+        }
+        if(ae.getSource()==b3)
+        {
+            tf1.setText("");
+            tf.setText("ENTER NAMES IN BOTH COLUMNS");  
+            tf2.setText("");
+        }
+        if(ae.getSource()==b4)
+        {            
+            io a=new io();
+            String s1=a.main();
+            tf.setText("LOVE  BETWEEN  YOU  IS  "+s1+"%");
+        }
+    }
+
+    void Pulse(String hj,boolean th)
+    {
+        if(th==true)
+        {
+            tf.setText("LOVE  BETWEEN  YOU  IS  "+hj+"%");
+        }
+        else
+        {
+            tf.setText("WRONG KEY PRESSED  ");
+        }
+    }
+
+    public static void main(String...s)
+    {
+        new Lc("Lc");
+    }
+}
+class io
+{
+    String main()
+    {
+        int a=(int)(Math.random()*100);
+        String s=String.valueOf(a);
+        return s;
+    }
+}
+class Zo3 implements KeyListener
+{
+    char ch;
+    public void keyTyped(KeyEvent e)
+    {
+
+    }
+
+    public void keyPressed(KeyEvent e)
+    {
+
+    }
+
+    public void keyReleased(KeyEvent e)
+    {
+        {
+            if(( ch=e.getKeyChar())=='c')
+            {
+                io a=new io();
+                String s1=a.main();
+                Lc v=new Lc("");
+                v.Pulse(s1,true);
+            }
+            else
+            if(( ch=e.getKeyChar())!='c')
+            {
+                Lc v=new Lc("");
+                v.Pulse("",false);
+            }
+        }
+
+    }
+}

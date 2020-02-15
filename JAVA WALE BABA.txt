@@ -1,0 +1,113 @@
+import java.awt.*;
+import java.awt.event.*;
+class Demo1 extends Frame
+{
+    public static void main(String []args)
+    {
+        System.out.println("QUESTION:-");
+        po f=new po();
+        f.po1(true);
+    }
+}
+class po extends Frame
+{
+  
+    void po1(boolean th)
+    {
+       
+        Label l2;
+        this.setSize(800,50);
+        this.setVisible(th);
+        this.setBackground(Color.green);
+        l2=new Label("     NAMASHKAR.     BOLO   JAVA   VALE   BABA   KI   JAI   JAI   JAI   ");
+        this.add(l2);
+       this.addKeyListener(new keyboardimpl());
+       
+    } 
+}
+class keyboardimpl implements KeyListener
+{
+    int x=0;
+    int kn=0;
+    char ch=' ';
+    String sss=" ";
+    int ret=0;
+    int sig=0;
+    String dsr="";
+    int co=0;
+    int ty=0,ty2=0,ty3=0;
+    String st=""; 
+    String ar[]={"b","a","b","a"," ","j","i"," ","p","l","e","a","s","e"," ","g","i","v","e"," ","a","n","s","w","e","r"," ","o","f"," ","m","y"," ","q","u","e","s","t","i","o","n"};
+    int n=0;
+    public void keyTyped(KeyEvent e)
+    {
+
+    }
+
+    public void keyPressed(KeyEvent e)
+    {
+
+    }
+
+    public void keyReleased(KeyEvent e)
+    {
+        if(x==0)
+        {
+            System.out.println("\f");
+            System.out.print("QUESTION:-");
+            x=1;
+        }
+        else
+        {
+            if(( ch=e.getKeyChar())!='/'&&((ret==1)&&(sig==1)))
+            {
+                sss=sss+ch;
+            }
+            if((e.getKeyChar())=='/')
+                dsr=sss;
+            if((ret!=0)&&(sig==1))
+            {
+                ty2=1;
+                System.out.print(ar[n]);
+                n++;
+                if(n==41)
+                    endIt();
+            }
+            if(ret==0)
+            {
+                if((e.getKeyChar())=='.')
+                {
+                    co=1;
+                    System.out.print("");
+                }
+                else 
+                {ty3=1;
+                    System.out.print(e.getKeyChar());
+                }
+            }
+            if(ret==1&&sig==0)
+            {
+                sig=1;
+            }
+            if((e.getKeyChar())=='?'&&(ret==0))
+            {
+                System.out.println();
+                ret=1;sig=0;
+                System.out.print("REQUEST:-");
+                if(co!=1)
+                {
+                    System.out.println("MITTAL KO POOCHNAE DO..");
+                }
+            }
+        }
+    }
+
+    public void endIt()
+    {
+        System.out.println();
+        System.out.print("ANSWER:-"+dsr);
+        po ok=new po();
+        ok.po1(true);
+    }
+}
+

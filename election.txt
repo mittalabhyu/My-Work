@@ -1,0 +1,364 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;import java.io.*;import java.util.*;
+class Hgirl implements ActionListener
+{
+    Frame f,f1;Label l;
+    TextField tf;
+    Button b1,b2,b3,b4,b5,b6,b7;MenuBar jmb;
+    int cnt1=1,cnt2=1,cnt3=1,cnt4=1,cnt5=1,cnt6=1,n5=0,n6=0,n1=0,n2=0,n3=0,n4=0; JPanel jp1,jp2;Menu fm; MenuItem jmi1,jmi2;
+    Hgirl(String p)
+    {
+        f=new Frame("SCHOOL HEAD GIRL");
+        f.setSize(1600,800);
+        f.setVisible(true);
+        f.setLayout(null);
+        f.addKeyListener(new Z4());
+        tf=new TextField();
+        tf.setBounds(400,50,500,40);
+        f.add(tf); 
+        tf.addKeyListener(new Z4());
+        b1=new Button("1");
+        b1.setBounds(850,140,30,30);
+        f.add(b1);
+        b1.addKeyListener(new Z4());
+        b2=new Button("2");
+        b2.setBounds(850,190,30,30);
+        f.add(b2);  
+        b2.addKeyListener(new Z4());
+        b4=new Button("3");
+        b4.setBounds(850,240,30,30);
+        f.add(b4); 
+        b4.addKeyListener(new Z4());
+        b3=new Button("CLR");
+        b3.setBounds(850,500,60,20);
+        f.add(b3); 
+        b3.addKeyListener(new Z4());
+        b5=new Button("NOTA");
+        b5.setBounds(850,390,60,30);
+        f.add(b5); 
+        b5.addKeyListener(new Z4());
+        f.setBackground(Color.magenta);     
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+
+        jp1=new JPanel();
+        jp1.setBounds(20,120,500,500);
+        jp1.setBackground(Color.lightGray);
+        GridLayout gl=new GridLayout(4,1);
+        jp1.setLayout(gl);
+        JLabel name,jp11,jp22,jp33,jp44;
+        name =new JLabel("1: NISHI CHOUDHARY");
+        jp11=new JLabel(" 2: SEJAL RATHORE ");
+        jp33=new JLabel(" 3:  SAKSHI SADH");
+        jp22=new JLabel(" 4: NONE OF THE ABOVE");
+
+        jp1.add(name);
+        jp1.add(jp11);
+        jp1.add(jp33);
+        jp1.add(jp22);
+
+        f.add(jp1);
+        jp2=new JPanel();
+        jp2.setBounds(800,120,500,500);
+        jp2.setBackground(Color.lightGray);
+        f.add(jp2);
+        jmb =new MenuBar();
+        fm=new Menu("FILE");
+        jmi1=new MenuItem("EXIT");
+        fm.add(jmi1);
+        jmi2=new MenuItem("RESULT");
+        fm.add(jmi2);
+        jmb.add(fm);
+        f.setMenuBar(jmb);
+        jmi1.addActionListener(this);
+        jmi2.addActionListener(this);
+    }
+
+    public void actionPerformed(ActionEvent ae) 
+    {
+        try
+        {           
+            if(ae.getSource()==jmi1)
+            {
+                System.exit(0);
+            }
+            if(ae.getSource()==jmi2)
+            {
+                System.out.println("PASSWORD");
+                f1=new Frame("RESULT");
+                f1.setSize(800,100);
+                f1.setVisible(true);
+                l=new Label("        ENTER PASSWORD FOR ACCESS");
+                f1.add(l);
+                f1.addKeyListener(new Zp4());
+            }
+            if(ae.getSource()==b1)
+            {
+                tf.setText("YOU VOTED FOR NISHI CHOUDHARY");
+                zzz a=new zzz();
+                a.main1(cnt1);
+            }
+            if(ae.getSource()==b2)
+            {
+                tf.setText("YOU VOTED FOR SEJAL RATHORE");
+                zzz a=new zzz();
+                a.main2(cnt2);
+            }
+            if(ae.getSource()==b4)
+            {
+                tf.setText("YOU VOTED FOR SAKSHI SADH");
+                zzz a=new zzz();
+                a.main3(cnt3);
+            }
+
+            if(ae.getSource()==b3)
+            {
+                tf.setText("ELECTION FOR SCHOOL HEAD GIRL ");
+            }
+            if(ae.getSource()==b5)
+            {
+                tf.setText("YOU VOTED FOR NONE");
+                zzz a=new zzz();
+                a.main4(cnt4);
+            }
+
+        }
+        catch(IOException ex)
+        {
+        }
+    }
+
+    void Pulse(String o)
+    {
+        if(o.compareTo("1")==0)
+        {
+            tf.setText("YOU VOTED FOR NISHI CHOUDHARY");
+        }
+        else
+        if(o.compareTo("2")==0)
+        {
+            tf.setText("YOU VOTED FOR SEJAL RATHORE");
+        }
+        else
+        if(o.compareTo("3")==0)
+        {
+            tf.setText("YOU VOTED FOR SAKSHI SADH");
+        }
+        else
+        if(o.compareTo("4")==0)
+        {
+            tf.setText("YOU VOTED FOR NONE");
+        }
+        else
+            tf.setText("WRONG KEY PRESSED");
+    }
+
+    public static void main(String...s)
+    {
+        new Hgirl("Hgirl");
+    }
+
+}
+class zzz
+{
+    int n1=0,n2=0,n3=0,n4=0;
+    void main1(int n) throws IOException
+    {
+        String text;
+        FileWriter fow=new FileWriter("V1.txt",true);
+        BufferedWriter bow=new BufferedWriter(fow);
+        PrintWriter c1=new PrintWriter(bow);	
+
+        FileReader fil=new FileReader("V1.txt");
+        BufferedReader iop1=new BufferedReader(fil);
+        int cnt11=0;
+        while((text=iop1.readLine())!=null)
+        {
+            cnt11=Integer.parseInt(text); 
+        }
+        n1=cnt11;
+        n1+=n;
+        c1.println(n1);
+        c1.close();
+        iop1.close();
+
+    }
+
+    void main2(int n) throws IOException
+    {
+        String text;
+        FileWriter fiw=new FileWriter("V2.txt",true);
+        BufferedWriter biw=new BufferedWriter(fiw);
+        PrintWriter c2=new PrintWriter(biw);	
+
+        FileReader files=new FileReader("V2.txt");
+        BufferedReader iop2=new BufferedReader(files);
+        int cnt11=0;
+        while((text=iop2.readLine())!=null)
+        {
+            cnt11=Integer.parseInt(text); 
+        }
+        n2=cnt11;
+        n2=n2+n;
+        c2.println(n2);
+        c2.close();
+        iop2.close();
+
+    }
+
+    void main4(int n) throws IOException
+    {
+        String text;
+        FileWriter flw=new FileWriter("V4.txt",true);
+        BufferedWriter blw=new BufferedWriter(flw);
+        PrintWriter c3=new PrintWriter(blw);	
+        FileReader filess=new FileReader("V4.txt");
+        BufferedReader iop3=new BufferedReader(filess);
+        int cnt11=0;
+        while((text=iop3.readLine())!=null)
+        {
+            cnt11=Integer.parseInt(text); 
+        }
+        n4=cnt11;
+        n4+=n;
+        c3.println(n4);
+        c3.close();
+        iop3.close();
+    }
+
+    void main3(int n) throws IOException
+    {
+        String text;
+        FileWriter flw=new FileWriter("V3.txt",true);
+        BufferedWriter blw=new BufferedWriter(flw);
+        PrintWriter c3=new PrintWriter(blw);	
+        FileReader filess=new FileReader("V3.txt");
+        BufferedReader iop3=new BufferedReader(filess);
+        int cnt11=0;
+        while((text=iop3.readLine())!=null)
+        {
+            cnt11=Integer.parseInt(text); 
+        }
+        n3=cnt11;
+        n3+=n;
+        c3.println(n3);
+        c3.close();
+        iop3.close();
+    }
+
+    void Print() throws IOException
+    {
+        main1(0);main2(0);main3(0);main4(0);
+        System.out.println("\f");
+        System.out.println("RESULT ::::");                
+        System.out.println("NISHI CHOUDHARY  :  "+n1);
+        System.out.println("SEJAL RATHORE   :  "+n2);
+        System.out.println("SAKSHI SADH   :  "+n3);
+        System.out.println("NONE OF CANDIDATES   :  "+n4);
+    }
+}
+class Z4 implements KeyListener
+{
+    String ff="";
+    public void keyTyped(KeyEvent e)
+    {
+
+    }
+
+    public void keyPressed(KeyEvent e)
+    {
+
+    }
+
+    public void keyReleased(KeyEvent e)
+    {
+        try
+        {      
+
+            if(e.getKeyChar()=='1')
+            {
+                zzz a=new zzz();
+                a.main1(1);
+                Hgirl s=new Hgirl("");
+                s.Pulse("1");
+            }
+
+            if(e.getKeyChar()=='2')
+            {
+                zzz a=new zzz();
+                a.main2(1);
+                Hgirl s=new Hgirl("");
+                s.Pulse("2");
+            }
+
+            if(e.getKeyChar()=='3')
+            {
+                zzz a=new zzz();
+                a.main3(1);
+                Hgirl s=new Hgirl("");
+                s.Pulse("3");
+            }
+            if(e.getKeyChar()=='4')
+            {
+                zzz a=new zzz();
+                a.main4(1);
+                Hgirl s=new Hgirl("");
+                s.Pulse("4");
+            }
+            if(e.getKeyChar()!='1'&&e.getKeyChar()!='2'&&e.getKeyChar()!='3'&&e.getKeyChar()!='4')
+            {
+                Hgirl s=new Hgirl("");
+                s.Pulse("");
+            }
+        }
+
+        catch(IOException ex)
+        {}
+    }
+}
+class Zp4 implements KeyListener
+{
+    String ff="";
+    public void keyTyped(KeyEvent e)
+    {
+
+    }
+
+    public void keyPressed(KeyEvent e)
+    {
+
+    }
+
+    public void keyReleased(KeyEvent e)
+    {
+        try
+        {
+            char ch;
+            if((ch=e.getKeyChar())!='/')
+            {
+                System.out.print("*");
+                ff+=" ";
+                if(ff.length()==10)
+                {
+                    System.out.println();
+                    System.out.println("WRONG PASSWORD");
+                    ff="";
+                    System.exit(0);
+                }
+            }
+            if((ch=e.getKeyChar())=='/')
+            {
+                zzz a=new zzz();
+                a.Print();
+                System.exit(0);
+            }
+        }
+        catch(IOException ex)
+        {}
+    }
+}
+
